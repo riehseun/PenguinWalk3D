@@ -1,0 +1,50 @@
+1. 3D penguin design
+There are seven different 3D shapes implemented to construct the penguin. They are,
+void penguin();
+void beak();
+void body();
+void arm();
+void hand();
+void leg();
+void foot();
+
+Each shape is implemented by setting 6 different sides where each side has 4 vertices.
+
+Note that because the shape of head and body of the penguin is the same except
+that they have different scale, the function body() is used to render penguin head
+as well as the body of the penguin.
+
+2. Basic polygon rendering
+In the display() function, each shape is rendered according to the following steps
+- scale to appropriate size
+- translate to the pivot location
+- set rotate or translate for animation
+- translate to the final rendering location
+- draw the shape
+
+Note that the maximun and minimum degree of rotation for each degree of freedom have 
+changed according to whether they physically make sense. For example, shoulder pitch 
+can't penetrate the body of the penguin.  
+
+3. Rendering metallic and matte penguin
+There are 5 rendering styles (wireframe, solid, outlined, metallic, matte)
+In display() function, switch statement is used to determine with what style the penguin
+should be rendered. These properties are added to the renderStyle pannel.
+
+The difference between metallic and matte is the shininess of the surfaces under the light.
+This difference is implemented by adjusting paramaters of the following
+
+ambient[]
+diffuse[]
+specular[]
+shininess
+
+4. Light source control
+There are two frames (Light_x and Light_y) that can be controlled to move the position of light.
+Light control is added to the joint control pannel.
+
+5. Keyframe functionality & supplied keyframe file
+keyfreames.txt has all 27 frames (24 degree of freedom + 2 Light control + NUM_JOINT_ENUM)
+
+6. Catmull-Rom interpolation functionality
+This is already implemented in the starter code.
